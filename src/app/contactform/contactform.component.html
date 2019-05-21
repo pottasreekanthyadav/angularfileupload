@@ -1,0 +1,55 @@
+   <div class="col-md-6 ">
+          <form #f="ngForm" class="needs-validation" novalidate (ngSubmit)="onSubmit()">
+              <div class="form-row">
+
+                
+                  <div class="col-md-12 mb-3">
+
+                      <label for="validationTooltip01">Your Email :</label>
+                      <input type="text" [(ngModel)]="email" #t1="ngModel" name="email" class="form-control" placeholder="Your Email"  [ngClass]="{ 'is-invalid': f.submitted && t1.invalid }" email required>
+
+                      <div *ngIf="f.submitted && t1.invalid" class="invalid-feedback">
+                            <div *ngIf="t1.errors.required">Email is required</div>
+                            <div *ngIf="t1.errors.email">Please Enter ValidEmail</div>
+                        </div>
+                  </div>
+                 
+                  <div class="col-md-12 mb-3">
+                      <label for="exampleSelect1">Priority :</label>
+                      <select class="custom-select" [(ngModel)]="priority" name="priority" required>
+                          <option selected="">Low</option>
+                          <option>Medium</option>
+                          <option>High</option> 
+                      </select>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                      <label for="exampleSelect1">Message Regarding :</label>
+                      <select class="custom-select" [(ngModel)]="messageregard" name="messageregard" required>
+                          <option selected="">New Coin / Token Listing Request</option>
+                          <option>Depost/Withdrawals Issues </option>
+                          <option>Email / Two-Factor(2FA) Issues </option>
+                          <option>Verification Issues</option>
+                          <option>Technical Support Request</option>
+                          <option>General Support Request</option>
+                          <option>Development Suggestion</option>
+                      </select>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                      <label for="validationTooltip01">Subject :</label>
+                      <input type="text" class="form-control" name="subject" [(ngModel)]="subject" placeholder="Subject" required>
+                  </div>
+
+                  <div class="col-md-12 mb-4">
+                      <label for="validationTooltip01">Message :</label>
+                      <textarea class="form-control" [(ngModel)]="msg" name="msg" placeholder="Write your query here" id="exampleFormControlTextarea1" rows="4"></textarea>
+                  </div>
+
+              </div>
+              <div class="form-row">
+                  <div class="col-md-12">
+                      <button class="btn btn-rounded btn-success col-md-12" type="submit">Submit form</button>
+                  </div>
+              </div>
+          </form>
+      </div>
